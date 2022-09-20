@@ -11,6 +11,8 @@
 		AB88D80D28DA080E001F2176 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88D80C28DA080E001F2176 /* ContentView.swift */; };
 		AB88D80F28DA080F001F2176 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB88D80E28DA080F001F2176 /* Assets.xcassets */; };
 		AB88D81228DA080F001F2176 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB88D81128DA080F001F2176 /* Preview Assets.xcassets */; };
+		AB88D81B28DA0855001F2176 /* OwenWilsonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88D81A28DA0855001F2176 /* OwenWilsonService.swift */; };
+		AB88D81D28DA1A00001F2176 /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88D81C28DA1A00001F2176 /* MovieView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		AB88D80C28DA080E001F2176 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AB88D80E28DA080F001F2176 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB88D81128DA080F001F2176 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AB88D81A28DA0855001F2176 /* OwenWilsonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwenWilsonService.swift; sourceTree = "<group>"; };
+		AB88D81C28DA1A00001F2176 /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 				AB88D80C28DA080E001F2176 /* ContentView.swift */,
 				AB88D80E28DA080F001F2176 /* Assets.xcassets */,
 				AB88D81028DA080F001F2176 /* Preview Content */,
+				AB88D81A28DA0855001F2176 /* OwenWilsonService.swift */,
+				AB88D81C28DA1A00001F2176 /* MovieView.swift */,
 			);
 			path = WOW;
 			sourceTree = "<group>";
@@ -138,7 +144,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB88D80D28DA080E001F2176 /* ContentView.swift in Sources */,
+				AB88D81D28DA1A00001F2176 /* MovieView.swift in Sources */,
 				AB88D80B28DA080E001F2176 /* WOWApp.swift in Sources */,
+				AB88D81B28DA0855001F2176 /* OwenWilsonService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

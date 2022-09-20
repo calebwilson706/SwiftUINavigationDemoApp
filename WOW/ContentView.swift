@@ -8,14 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var movies: MoviesApiResponse = []
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack {
+            List(movies, id: \.self) { movie in
+                NavigationLink(movie, value: movie)
+            }.refreshable(action: updateMovieList)
+             .navigationTitle("Owen Wilson Movies")
+             .navigationDestination(for: String.self, destination: MovieView.init)
+        }.onAppear {
+            Task {
+                await updateMovieList()
+            }
         }
-        .padding()
+    }
+    
+    @Sendable func updateMovieList() async {
+        do {
+            movies = try await OwenWilsonService.getMovies()
+        } catch {
+            // handle error
+            movies = []
+        }
     }
 }
 
