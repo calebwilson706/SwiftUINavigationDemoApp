@@ -18,7 +18,7 @@ struct MovieView: View {
 
     var body: some View {
         List(wows, id: \.self) {wow in
-            NavigationLink("\(wow.currentWowInMovie)", value: wow)
+            NavigationLink("\(wow.currentWowInMovie)", value: Route.Wow(wow))
         }
         .navigationTitle("Wows in \(movie)")
         .onAppear {

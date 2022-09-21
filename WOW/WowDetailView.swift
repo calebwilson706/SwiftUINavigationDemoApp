@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct WowDetailView: View {
     let wow: Wow
@@ -13,6 +14,7 @@ struct WowDetailView: View {
     var body: some View {
         VStack {
             Divider()
+            videoPlayer
             HStack {
                 VStack(alignment: .leading) {
                     Text(wow.fullLine)
@@ -28,6 +30,16 @@ struct WowDetailView: View {
         }
         .padding()
         .navigationTitle("\(wow.movie) - \(wow.currentWowInMovie)/\(wow.totalWowsInMovie)")
+    }
+    
+    var videoPlayer: some View {
+        Group {
+            if let url = URL(string: wow.video.the1080P) {
+                VideoPlayer(player: AVPlayer(url: url))
+            } else {
+                Text("Could not find video...")
+            }
+        }.frame(height: 220)
     }
 }
 

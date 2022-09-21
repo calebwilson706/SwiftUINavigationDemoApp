@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         RouterOutlet {
             List(movies, id: \.self) { movie in
-                NavigationLink(movie, value: movie)
+                NavigationLink(movie, value: Route.Movie(movie))
             }
             .navigationTitle("Owen Wilson Movies")
             .refreshable(action: updateMovieList)

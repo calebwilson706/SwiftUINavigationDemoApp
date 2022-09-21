@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-//enum Route : Hashable {
-//    case Movie(String)
-//    case Wow(Wow)
-//}
+enum Route : Hashable {
+    case Movie(String)
+    case Wow(Wow)
+}
 
 struct RouterOutlet<Content: View>: View {
     let content: Content
@@ -22,8 +22,14 @@ struct RouterOutlet<Content: View>: View {
     var body: some View {
         NavigationStack {
             content
-                .navigationDestination(for: String.self, destination: MovieView.init)
-                .navigationDestination(for: Wow.self, destination: WowDetailView.init)
+            .navigationDestination(for: Route.self) { route in
+                switch route {
+                    case let .Movie(movie):
+                        MovieView(movie: movie)
+                    case let .Wow(wow):
+                        WowDetailView(wow: wow)
+                }
+            }
         }
     }
 }
