@@ -9,15 +9,30 @@ import SwiftUI
 
 struct MovieView: View {
     let movie: String
+    @State var wows: WowApiResponse
+    
+    init(movie: String) {
+        self.movie = movie
+        self.wows = []
+    }
 
     var body: some View {
-        List(["1", "2"], id: \.self, rowContent: Text.init)
-            .navigationTitle("Wows in \(movie)")
+        List(wows, id: \.self) {wow in
+            NavigationLink("\(wow.currentWowInMovie)", value: wow)
+        }
+        .navigationTitle("Wows in \(movie)")
+        .onAppear {
+            Task {
+                self.wows = await OwenWilsonService.getWowsIn(movie: movie)
+            }
+        }
     }
 }
 
 struct MovieView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieView(movie: "Kung Fu Panda")
+        NavigationStack {
+            MovieView(movie: "Kung Fu Panda")
+        }
     }
 }

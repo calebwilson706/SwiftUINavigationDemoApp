@@ -17,6 +17,7 @@ struct ContentView: View {
             }.refreshable(action: updateMovieList)
              .navigationTitle("Owen Wilson Movies")
              .navigationDestination(for: String.self, destination: MovieView.init)
+             .navigationDestination(for: Wow.self, destination: WowDetailView.init)
         }.onAppear {
             Task {
                 await updateMovieList()
@@ -25,12 +26,7 @@ struct ContentView: View {
     }
     
     @Sendable func updateMovieList() async {
-        do {
-            movies = try await OwenWilsonService.getMovies()
-        } catch {
-            // handle error
-            movies = []
-        }
+        movies = await OwenWilsonService.getMovies()
     }
 }
 

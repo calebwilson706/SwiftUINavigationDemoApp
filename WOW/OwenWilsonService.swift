@@ -7,11 +7,7 @@
 
 import Foundation
 
-struct Wow: Codable, Identifiable {
-    var id: String {
-        "\(movie)\(timestamp)"
-    }
-    
+struct Wow: Codable, Identifiable, Hashable {
     let movie: String
     let year: Int
     let releaseDate: String
@@ -25,6 +21,34 @@ struct Wow: Codable, Identifiable {
     let poster: String
     let video: Video
     let audio: String
+    
+    enum CodingKeys: String, CodingKey {
+        case movie = "movie"
+        case year = "year"
+        case releaseDate = "release_date"
+        case director = "director"
+        case character = "character"
+        case movieDuration = "movie_duration"
+        case timestamp = "timestamp"
+        case fullLine = "full_line"
+        case currentWowInMovie = "current_wow_in_movie"
+        case totalWowsInMovie = "total_wows_in_movie"
+        case poster = "poster"
+        case video = "video"
+        case audio = "audio"
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    var id: String {
+        "\(movie)\(timestamp)"
+    }
+    
+    static func == (lhs: Wow, rhs: Wow) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
 
@@ -42,16 +66,33 @@ struct Video: Codable {
 typealias WowApiResponse = [Wow]
 typealias MoviesApiResponse = [String]
 
+enum WowApiErrors: Error {
+    case invalidUrl
+}
+
 class OwenWilsonService {
     static let baseUrl = "https://owen-wilson-wow-api.herokuapp.com/wows"
     
-    static func getMovies() async throws -> MoviesApiResponse {
-        guard let url = URL(string: "\(OwenWilsonService.baseUrl)/movies") else {
-            return []
+    static func getMovies() async -> MoviesApiResponse {
+        let data: MoviesApiResponse? = try? await fetchFromApiAt(endpoint: "/movies")
+        
+        return data ?? []
+    }
+    
+    static func getWowsIn(movie: String) async -> WowApiResponse {
+        let urlSafeQuery = "results=1000&movie=\(movie)&sort=number_current_wow".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let data: WowApiResponse? = try? await fetchFromApiAt(endpoint: "/random?\(urlSafeQuery)")
+        
+        return data ?? []
+    }
+    
+    private static func fetchFromApiAt<ResponseType: Decodable>(endpoint: String) async throws -> ResponseType {
+        guard let url = URL(string: "\(OwenWilsonService.baseUrl)\(endpoint)") else {
+            throw WowApiErrors.invalidUrl
         }
         
         let (data, _) = try await URLSession.shared.data(from: url)
         
-        return try JSONDecoder().decode(MoviesApiResponse.self, from: data)
+        return try JSONDecoder().decode(ResponseType.self, from: data)
     }
 }
