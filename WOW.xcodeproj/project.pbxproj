@@ -14,6 +14,7 @@
 		AB88D81B28DA0855001F2176 /* OwenWilsonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88D81A28DA0855001F2176 /* OwenWilsonService.swift */; };
 		AB88D81D28DA1A00001F2176 /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88D81C28DA1A00001F2176 /* MovieView.swift */; };
 		AB88D81F28DB4BB7001F2176 /* WowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88D81E28DB4BB7001F2176 /* WowDetailView.swift */; };
+		AB88D82128DB6F84001F2176 /* RouterOutlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88D82028DB6F84001F2176 /* RouterOutlet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		AB88D81A28DA0855001F2176 /* OwenWilsonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwenWilsonService.swift; sourceTree = "<group>"; };
 		AB88D81C28DA1A00001F2176 /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
 		AB88D81E28DB4BB7001F2176 /* WowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WowDetailView.swift; sourceTree = "<group>"; };
+		AB88D82028DB6F84001F2176 /* RouterOutlet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterOutlet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				AB88D81A28DA0855001F2176 /* OwenWilsonService.swift */,
 				AB88D81C28DA1A00001F2176 /* MovieView.swift */,
 				AB88D81E28DB4BB7001F2176 /* WowDetailView.swift */,
+				AB88D82028DB6F84001F2176 /* RouterOutlet.swift */,
 			);
 			path = WOW;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB88D80D28DA080E001F2176 /* ContentView.swift in Sources */,
+				AB88D82128DB6F84001F2176 /* RouterOutlet.swift in Sources */,
 				AB88D81F28DB4BB7001F2176 /* WowDetailView.swift in Sources */,
 				AB88D81D28DA1A00001F2176 /* MovieView.swift in Sources */,
 				AB88D80B28DA080E001F2176 /* WOWApp.swift in Sources */,

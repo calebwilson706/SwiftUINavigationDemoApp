@@ -11,16 +11,16 @@ struct ContentView: View {
     @State var movies: MoviesApiResponse = []
     
     var body: some View {
-        NavigationStack {
+        RouterOutlet {
             List(movies, id: \.self) { movie in
                 NavigationLink(movie, value: movie)
-            }.refreshable(action: updateMovieList)
-             .navigationTitle("Owen Wilson Movies")
-             .navigationDestination(for: String.self, destination: MovieView.init)
-             .navigationDestination(for: Wow.self, destination: WowDetailView.init)
-        }.onAppear {
-            Task {
-                await updateMovieList()
+            }
+            .navigationTitle("Owen Wilson Movies")
+            .refreshable(action: updateMovieList)
+            .onAppear {
+                Task {
+                    await updateMovieList()
+                }
             }
         }
     }
