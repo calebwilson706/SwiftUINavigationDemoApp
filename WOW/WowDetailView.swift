@@ -32,7 +32,7 @@ struct WowDetailView: View {
         .navigationTitle("\(wow.movie) - \(wow.currentWowInMovie)/\(wow.totalWowsInMovie)")
     }
     
-    var videoPlayer: some View {
+    private var videoPlayer: some View {
         Group {
             if let url = URL(string: wow.video.the1080P) {
                 VideoPlayer(player: AVPlayer(url: url))

@@ -11,7 +11,17 @@ import SwiftUI
 struct WOWApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                MoviesListView()
+                    .tabItem {
+                        Label("Movies", systemImage: "film.stack.fill")
+                    }
+
+                DirectorsListView()
+                    .tabItem {
+                        Label("Directors", systemImage: "megaphone.fill")
+                    }
+            }
         }
     }
 }

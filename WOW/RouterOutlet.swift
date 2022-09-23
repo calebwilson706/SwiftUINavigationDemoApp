@@ -9,11 +9,12 @@ import SwiftUI
 
 enum Route : Hashable {
     case Movie(String)
+    case Director(String)
     case Wow(Wow)
 }
 
 struct RouterOutlet<Content: View>: View {
-    let content: Content
+    private let content: Content
     
     init(@ViewBuilder content: () -> Content) {
         self.content = content()
@@ -28,6 +29,9 @@ struct RouterOutlet<Content: View>: View {
                         MovieView(movie: movie)
                     case let .Wow(wow):
                         WowDetailView(wow: wow)
+                    case let .Director(director):
+                        DirectorView(director: director)
+                    
                 }
             }
         }

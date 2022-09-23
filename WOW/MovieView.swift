@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct MovieView: View {
-    let movie: String
-    @State var wows: WowApiResponse
+    private let movie: String
+    @State private var wows: WowApiResponse
     
     init(movie: String) {
         self.movie = movie

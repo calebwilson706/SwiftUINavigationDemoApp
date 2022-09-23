@@ -8,25 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		AB88D80B28DA080E001F2176 /* WOWApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88D80A28DA080E001F2176 /* WOWApp.swift */; };
-		AB88D80D28DA080E001F2176 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88D80C28DA080E001F2176 /* ContentView.swift */; };
+		AB88D80D28DA080E001F2176 /* MoviesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88D80C28DA080E001F2176 /* MoviesListView.swift */; };
 		AB88D80F28DA080F001F2176 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB88D80E28DA080F001F2176 /* Assets.xcassets */; };
 		AB88D81228DA080F001F2176 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB88D81128DA080F001F2176 /* Preview Assets.xcassets */; };
 		AB88D81B28DA0855001F2176 /* OwenWilsonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88D81A28DA0855001F2176 /* OwenWilsonService.swift */; };
 		AB88D81D28DA1A00001F2176 /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88D81C28DA1A00001F2176 /* MovieView.swift */; };
 		AB88D81F28DB4BB7001F2176 /* WowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88D81E28DB4BB7001F2176 /* WowDetailView.swift */; };
 		AB88D82128DB6F84001F2176 /* RouterOutlet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88D82028DB6F84001F2176 /* RouterOutlet.swift */; };
+		AB88D82328DCB7AC001F2176 /* DirectorsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88D82228DCB7AC001F2176 /* DirectorsListView.swift */; };
+		AB88D82528DCBAD1001F2176 /* DirectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB88D82428DCBAD1001F2176 /* DirectorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AB88D80728DA080E001F2176 /* WOW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WOW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB88D80A28DA080E001F2176 /* WOWApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WOWApp.swift; sourceTree = "<group>"; };
-		AB88D80C28DA080E001F2176 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AB88D80C28DA080E001F2176 /* MoviesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListView.swift; sourceTree = "<group>"; };
 		AB88D80E28DA080F001F2176 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB88D81128DA080F001F2176 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AB88D81A28DA0855001F2176 /* OwenWilsonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwenWilsonService.swift; sourceTree = "<group>"; };
 		AB88D81C28DA1A00001F2176 /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
 		AB88D81E28DB4BB7001F2176 /* WowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WowDetailView.swift; sourceTree = "<group>"; };
 		AB88D82028DB6F84001F2176 /* RouterOutlet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterOutlet.swift; sourceTree = "<group>"; };
+		AB88D82228DCB7AC001F2176 /* DirectorsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectorsListView.swift; sourceTree = "<group>"; };
+		AB88D82428DCBAD1001F2176 /* DirectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,13 +64,15 @@
 			isa = PBXGroup;
 			children = (
 				AB88D80A28DA080E001F2176 /* WOWApp.swift */,
-				AB88D80C28DA080E001F2176 /* ContentView.swift */,
+				AB88D80C28DA080E001F2176 /* MoviesListView.swift */,
 				AB88D80E28DA080F001F2176 /* Assets.xcassets */,
 				AB88D81028DA080F001F2176 /* Preview Content */,
 				AB88D81A28DA0855001F2176 /* OwenWilsonService.swift */,
 				AB88D81C28DA1A00001F2176 /* MovieView.swift */,
 				AB88D81E28DB4BB7001F2176 /* WowDetailView.swift */,
 				AB88D82028DB6F84001F2176 /* RouterOutlet.swift */,
+				AB88D82228DCB7AC001F2176 /* DirectorsListView.swift */,
+				AB88D82428DCBAD1001F2176 /* DirectorView.swift */,
 			);
 			path = WOW;
 			sourceTree = "<group>";
@@ -149,9 +155,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB88D80D28DA080E001F2176 /* ContentView.swift in Sources */,
+				AB88D80D28DA080E001F2176 /* MoviesListView.swift in Sources */,
 				AB88D82128DB6F84001F2176 /* RouterOutlet.swift in Sources */,
 				AB88D81F28DB4BB7001F2176 /* WowDetailView.swift in Sources */,
+				AB88D82328DCB7AC001F2176 /* DirectorsListView.swift in Sources */,
+				AB88D82528DCBAD1001F2176 /* DirectorView.swift in Sources */,
 				AB88D81D28DA1A00001F2176 /* MovieView.swift in Sources */,
 				AB88D80B28DA080E001F2176 /* WOWApp.swift in Sources */,
 				AB88D81B28DA0855001F2176 /* OwenWilsonService.swift in Sources */,

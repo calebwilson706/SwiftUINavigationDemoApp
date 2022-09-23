@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @State var movies: MoviesApiResponse = []
+struct MoviesListView: View {
+    @State private var movies: MoviesApiResponse = []
     
     var body: some View {
         RouterOutlet {
@@ -32,6 +32,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MoviesListView()
     }
 }

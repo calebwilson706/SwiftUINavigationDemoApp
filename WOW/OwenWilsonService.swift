@@ -65,13 +65,14 @@ struct Video: Codable {
 
 typealias WowApiResponse = [Wow]
 typealias MoviesApiResponse = [String]
+typealias DirectorsApiResponse = [String]
 
 enum WowApiErrors: Error {
     case invalidUrl
 }
 
 class OwenWilsonService {
-    static let baseUrl = "https://owen-wilson-wow-api.herokuapp.com/wows"
+    static private let baseUrl = "https://owen-wilson-wow-api.herokuapp.com/wows"
     
     static func getMovies() async -> MoviesApiResponse {
         let data: MoviesApiResponse? = try? await fetchFromApiAt(endpoint: "/movies")
@@ -79,8 +80,21 @@ class OwenWilsonService {
         return data ?? []
     }
     
+    static func getDirectors() async -> DirectorsApiResponse {
+        let data: MoviesApiResponse? = try? await fetchFromApiAt(endpoint: "/directors")
+        
+        return data ?? []
+    }
+    
     static func getWowsIn(movie: String) async -> WowApiResponse {
-        let urlSafeQuery = "results=1000&movie=\(movie)&sort=number_current_wow".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let urlSafeQuery = makeQueryUrlSafe("results=1000&movie=\(movie)&sort=number_current_wow")
+        let data: WowApiResponse? = try? await fetchFromApiAt(endpoint: "/random?\(urlSafeQuery)")
+        
+        return data ?? []
+    }
+    
+    static func getWowsInMoviesBy(director: String) async -> WowApiResponse {
+        let urlSafeQuery = makeQueryUrlSafe("results=1000&director=\(director)")
         let data: WowApiResponse? = try? await fetchFromApiAt(endpoint: "/random?\(urlSafeQuery)")
         
         return data ?? []
@@ -94,5 +108,9 @@ class OwenWilsonService {
         let (data, _) = try await URLSession.shared.data(from: url)
         
         return try JSONDecoder().decode(ResponseType.self, from: data)
+    }
+    
+    private static func makeQueryUrlSafe(_ query: String) -> String {
+        query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
     }
 }
